@@ -1,0 +1,6 @@
+<!-- 
+	There are two types of events, component and application. Here we’re using a component event, because we want an ancestor component to catch and handle the event. An ancestor is a component “above” this one in the component hierarchy. If we wanted a “general broadcast” kind of event, where any component could receive it, we’d use an application event instead 
+-->
+<aura:event type="COMPONENT">
+	<aura:attribute name="expense" type="Expense__c"/>
+</aura:event>

@@ -1,0 +1,41 @@
+<aura:component controller="CampingListController">
+
+    <!-- Define the Variables here -->
+   
+    <!-- WHY SHOULD i DEFINE HERE AS AGAINST ANY OTHER PLACE???
+     IT IS NOT VISIBLE IF OUTSIDE -->
+   
+
+    <aura:attribute name="items" type="Camping_Item__c[]"/>
+    <!-- handler for the event -->
+    <aura:registerEvent name="addItem" type="c:addItemEvent"/>
+    <aura:handler name="addItem" event="c:addItemEvent" action="{!c.handleAddItem}"/>
+     
+      <div class="slds-grid">
+        <div class="slds-col slds-col--padded slds-p-top--small">
+          <p class="slds-text-heading--label">Camping Items</p>
+        </div>
+      </div>
+    calling caming list form
+    <c:campingListForm />
+
+  
+   <!-- SHOW THE EXPENSES -->
+       <div class="slds-card slds-p-top--medium">
+           <header class="slds-card__header">
+               <h3 class="slds-text-heading--small">Camping Items</h3>
+           </header>
+           
+           <section class="slds-card__body">
+               <div id="list" class="row">
+                   <aura:iteration items="{!v.items}" var="item">
+                       <c:campingListItem item="{!item}"/>
+                   </aura:iteration>
+               </div>
+           </section>
+       </div>
+
+   
+   <!-- SHOW THE CampingItems -->
+
+</aura:component>
